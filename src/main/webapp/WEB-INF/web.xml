@@ -1,0 +1,39 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"  
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"  
+      version="3.0">  
+      
+     <servlet>
+     	<servlet-name>coreServlet</servlet-name>
+     	<servlet-class>cn.ty.service.CoreServlet</servlet-class>
+     </servlet>
+     <!-- url-pattern中配置的/coreServlet用于指定该Servlet的访问路径 -->
+     <servlet-mapping>
+     	<servlet-name>coreServlet</servlet-name>
+     	<url-pattern>/coreServlet</url-pattern>
+     </servlet-mapping>
+     <!-- 初始化spring配置 -->  
+	 <context-param>    
+	    <param-name>contextConfigLocation</param-name>    
+	    <param-value>/WEB-INF/spring*.xml</param-value>    
+	 </context-param>  
+	 <!-- struts2 的拦截器 -->    
+	 <filter>  
+	    <filter-name>struts2</filter-name>  
+	    <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+	</filter>  
+	<filter-mapping>  
+	    <filter-name>struts2</filter-name>  
+	    <url-pattern>/*</url-pattern>  
+	</filter-mapping>  
+	    
+	<!-- spring 监听器 -->  
+ 	<listener>    
+     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>     
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/view/welcome.jsp</welcome-file>
+      </welcome-file-list>
+
+</web-app>  
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+        "http://struts.apache.org/dtds/struts-2.0.dtd">  
+<struts>  
+  <package name="user" extends="default" namespace="/user"  >  
+     <action name="userAction" class="cn.ty.action.UserAction">  
+            <result name="success">/success.jsp</result>  
+            
+     </action>  
+    <!-- <action name="userAction" class="com.bkybk.action.UserAction">
+    		<result name="success">/jsp/user/index.jsp</result>
+    		<result name="userList">/jsp/user/userList.jsp</result>
+    		<result name="add">/jsp/user/addUser.jsp</result>
+    		<result name="goList" type="redirectAction">userAction!getUserAll.do</result>
+    		
+     </action>-->
+		
+ </package>   
+</struts>  

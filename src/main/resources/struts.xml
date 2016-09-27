@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<!DOCTYPE struts PUBLIC  
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+        "http://struts.apache.org/dtds/struts-2.0.dtd">  
+<struts>  
+  <constant value="false" name="struts.enable.DynamicMethodInvocation"/>   
+  <constant value="true" name="struts.devMode"/>   
+  <!-- 将action托管给spring -->  
+  <constant name="struts.objectFactory" value="spring" />  
+  <package name="default" extends="struts-default" namespace="/">  
+      <default-action-ref name="index"/>  
+      <global-results>  
+          <result name="error">/error.jsp</result>  
+      </global-results>  
+       <global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>  
+       </global-exception-mappings>  
+    </package>  
+  <include file="user.xml"/>  
+  
+  <!--请求后缀，该属性的默认值是action -->
+  <constant name="struts.action.extension" value="action"></constant>
+
+  
+</struts>  

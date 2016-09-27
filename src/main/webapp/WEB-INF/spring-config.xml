@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xsi:schemaLocation="http://www.springframework.org/schema/beans  
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+  http://www.springframework.org/schema/aop  
+  http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">  
+      <!-- dbcp数据源 -->              
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"   
+        destroy-method="close">  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+        <property name="url" value="jdbc:mysql://localhost:3306/um" />  
+        <property name="username" value="root" />  
+        <property name="password" value="123" />  
+        <!-- 初始化数 -->  
+        <property name="initialSize" value="2" />  
+        <!-- 最大连接数 -->  
+        <property name="maxActive" value="5" />  
+        <!-- 最大空闲连接数 -->  
+        <property name="maxIdle" value="1" />  
+         <!-- 最小空闲连接数 -->  
+        <property name="minIdle" value="1" />  
+    </bean>  
+    <!-- MyBatis在spring中Bean的配置，都是固定的 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+       <property name="configLocation" value="WEB-INF/mybatis.xml" />  
+       <property name="dataSource" ref="dataSource" />  
+    </bean>  
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">  
+       <constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />  
+    </bean>  
+    <!-- 配置事务管理器，注意这里的dataSource和SqlSessionFactoryBean的dataSource要一致，不然事务就没有作用了-->  
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>  
+      
+  </beans>  
