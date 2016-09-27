@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class SignUtil {
 
 	// 与接口配置信息中的Token要一致
-	private static String token = "wojiaotangyi";
+	private static String token = Constants.TOKEN;
 	
 	 public static boolean checkSignature(String signature, String timestamp, String nonce) {
 		String [] arr = new String []{token, timestamp, nonce};
