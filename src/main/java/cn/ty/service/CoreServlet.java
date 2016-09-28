@@ -14,6 +14,8 @@ import cn.ty.util.SignUtil;
 
 public class CoreServlet extends HttpServlet{
 	
+	private static final long serialVersionUID = -2276297158918894614L;
+	
 	public static final Logger logger = LoggerFactory.getLogger(CoreServlet.class);
 	
 	 /**
