@@ -278,6 +278,14 @@
 	    <artifactId>json</artifactId>
 	    <version>20160810</version>
 	</dependency>
+	<!-- 解析XML转为MAP集合-->
+	<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+	<dependency>
+	    <groupId>dom4j</groupId>
+	    <artifactId>dom4j</artifactId>
+	    <version>1.6.1</version>
+	</dependency>
+	
   </dependencies>
   <!-- 插件定义 -->  
   <build>
